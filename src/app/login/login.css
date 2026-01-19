@@ -1,22 +1,141 @@
-/* Full page background with a modern gradient */
-.login-page {
-    background: linear-gradient(135deg, #f0f2f5 0%, #d9e2ec 100%);
-    padding: 1rem;
-  }
-  
-  /* Card sizing restriction */
-  .login-card {
+
+.login-wrapper {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    height: 100vh;
     width: 100%;
-    max-width: 450px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #fff, #044a32 19%);
+}
+
+
+.login-card {
+    background: #009b65;
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, .3);
+    padding: 35px;
+    color: #fff;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: #00000040 0 54px 55px, #0000001f 0 -12px 30px, #0000001f 0 4px 6px, #0000002b 0 12px 13px, #00000017 0 -3px 5px;
+    width: 350px;
+    margin: auto;      
+}
+
+
+.logo-circle {
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(255,255,255,0.2);
+}
+
+/* 4. Inputs */
+.form-control, .input-group-text {
+  border: none;
+  font-size: 0.95rem;
+}
+.input-group-text {
+  color: #00a676; /* Green eye icon */
+}
+
+/* 5. Brown Button */
+.btn-brown {
+  background-color: #543d2c; /* Dark brown match */
+  color: white;
+  border: none;
+  transition: transform 0.2s;
+}
+.btn-brown:hover {
+  background-color: #423022;
+  transform: scale(1.02);
+  color: #fff;
+}
+
+/* 6. Right Side Branding */
+.text-warning {
+  color: #ffd700 !important; /* Gold/Yellow URL */
+}
+
+.hero-pill {
+  /* Gradient from Blue to Green */
+  background: linear-gradient(90deg, #005cbb 0%, #008f6d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 500px;
+}
+
+.ls-1 {
+  letter-spacing: 1px;
+}
+
+.icon-box {
+  width: 80px;
+  height: 80px;
+  border: 3px solid #ffca2c; /* Bootstrap warning yellow/orange */
+  border-radius: 50%; /* Circle */
+  color: #ffca2c;
+  margin-bottom: 20px;
+  /* Optional: Add a subtle pulse animation if you want it fancy */
+  animation: pulse-orange 2s infinite; 
+}
+
+/* Ensure the exclamation mark is centered and large */
+.icon-box i {
+  font-size: 3rem; /* Large icon size */
+  line-height: 0;
+  margin-top: -5px; /* Slight adjustment for perfect vertical center */
+  font-weight: bold; /* Make the stick thicker */
+}
+
+/* Button Styling (Blue match) */
+.btn-primary {
+  background-color: #0d6efd; /* Bootstrap default blue */
+  border: none;
+  min-width: 120px;
+}
+
+/* Optional Pulse Animation */
+@keyframes pulse-orange {
+  0% { box-shadow: 0 0 0 0 rgba(255, 202, 44, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 202, 44, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 202, 44, 0); }
+}
+
+
+@media (max-width: 768px) {
+  .login-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    background: linear-gradient(135deg, #044a32 0%, #006b4a 50%, #009b65 100%);
+    overflow-y: auto;
   }
   
-  /* Optional: Smooth transition for inputs */
-  .form-control {
-    transition: all 0.2s ease-in-out;
+  /* Reorder: branding first, login card second */
+  .login-wrapper > div:first-child {
+    order: 2;
   }
   
-  /* Optional: Slight lift effect on input focus for modern feel */
-  .form-control:focus {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-    border-color: #0d6efd;
+  .login-wrapper > div:last-child {
+    order: 1;
+    padding: 2rem 1rem !important;
   }
+  
+  .login-card {
+    transform: scale(0.95);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 350px;
+  }
+  
+  /* Adjust branding text sizes for mobile */
+  .login-wrapper > div:last-child h1 {
+    font-size: 2rem !important;
+  }
+  
+  .login-wrapper > div:last-child h3 {
+    font-size: 1.1rem !important;
+  }
+  
+  .login-wrapper > div:last-child .hero-pill h4 {
+    font-size: 1rem !important;
+  }
+}
